@@ -1,0 +1,235 @@
+#!/bin/sh
+#!/usr/bin/expect
+
+spawn java -jar /tmp/DigitalExperienceManager.jar -console
+
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# License
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "?press Enter to continue, X to exit"
+send "\r"
+expect "press 1 to accept, 2 to reject, 3 to redisplay"
+send "1\r"
+
+# Installation directory
+expect "Select target path \[/usr/local/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0\]"
+send "/opt/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Installation type (0=discovery, 1=custom)
+expect "input selection:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Embedded Tomcat (0=no, 1=yes)
+expect "input 1 to select, 0 to deselect:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Standalone DBMS (0=yes, 1=no)
+expect "input selection:"
+send "0\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Database type (0=sql server, 1=mysql, 2=oracle, 3=postgresql, 4=embedded derby)
+expect "input selection:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# MySQL connector JAR file
+expect "Specify the path to the downloaded driver JAR file"
+send "\025/usr/lib/mysql-connector-java-5.1.44.jar\r"
+expect "input 1 to select, 0 to deselect:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Database configuration
+expect "Database driver (*) \[com.mysql.jdbc.Driver\]"
+send "\r"
+expect "Database URL (*) \[jdbc:mysql://localhost/jahia?useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false\]"
+send "\025jdbc:mysql://mysql:3306/jahia?useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=false\r"
+expect "Database username \[jahia\]"
+send "jahia\r"
+expect "Database password \[jahia\]"
+send "jahia_root\r"
+
+# Store binary data in the database?
+expect "input 1 to select, 0 to deselect:"
+send "0\r"
+
+# Create required database tables?
+expect "input 1 to select, 0 to deselect:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Jahia context name
+expect "Context name (context path without /)"
+send "site\r"
+
+# Jahia tools credentials
+expect "Jahia tool manager username (*) \[jahia\]"
+send "\r"
+expect "Jahia tool manager password (*)"
+send "jahia_tools\r"
+
+# SSH console port
+expect "SSH console port (*) \[8101\]"
+send "\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Tomcat settings
+expect "HTTP connector port (*) \[8080\]"
+send "\r"
+expect "HTTPS redirect port (*) \[8443\]"
+send "\r"
+expect "AJP connector port (*) \[8009\]"
+send "\r"
+expect "Server shutdown port (*) \[8005\]"
+send "\r"
+
+# JVM options
+expect "jvmRoute (AJP load balancing)"
+send "\r"
+expect "Maximum heap size in MB (*) \[2048\]"
+send "\r"
+expect "Maximum PermGen size in MB (*) \[384\]"
+send "\r"
+expect "Additional options"
+send "\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Operating mode (0=development, 1=development+modules, 2=production, 3=distant)
+expect "input selection:"
+send "0\r"
+
+# Configure LDAP user/group provider (0=no, 1=yes)
+expect "input 1 to select, 0 to deselect:"
+send "0\r"
+
+# Provide Cluster configuration (0=no, 1=yes)
+expect "input 1 to select, 0 to deselect:"
+send "0\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Jahia admin user
+expect "Password (*)"
+send "jahia_root\r"
+expect "Password (*) \[jahia_root\]"
+send "\r"
+expect "First name"
+send "your_first_name\r"
+expect "Last name"
+send "your_last_name\r"
+expect "E-mail"
+send "your_email\r"
+
+# Language (1=English)
+expect "input selection:"
+send "1\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Mail settings
+expect "Mail server"
+send "your_smtp_host\r"
+expect "Mail administrator - recipient"
+send "your_email\r"
+expect "Mail from - sender"
+send "your_email\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Maven executable
+expect "Provide the path for your Maven executable (mvn)"
+send "\r"
+
+# SVN executable
+expect "Provide the path for your Subversion executable (svn)"
+send "\r"
+
+# Git executable
+expect "Provide the path for your Git executable (git)"
+send "\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Validate settings (0=no, 1=yes)
+expect "input 1 to select, 0 to deselect:"
+send "1\r"
+
+# LibreOffice configuration
+expect "Select the path for your LibreOffice or OpenOffice install"
+send "/usr/lib64/libreoffice\r"
+
+# ImageMagick configuration
+expect "Select the path for your imagemagick install"
+send "\025\r/usr/lib64/ImageMagick-6.7.2\r"
+
+# Pdf2swf configuration
+expect "Select the pdf2swf executable file"
+send "\r"
+
+# Ffmpeg configuration
+expect "Select the ffmpeg executable file"
+send "\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# Default language (41=english)
+expect "input selection:"
+send "41\r"
+
+# Existing licence file
+expect "Existing license file to use"
+send "\r"
+
+# Modules to be deployed
+expect "Path to a folder with additional modules to be deployed"
+send "/tmp/jahia_modules/\r"
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+# data and configuration paths
+expect "Runtime data path \[/usr/local/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0/digital-factory-data\]"
+send "/opt/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0/digital-factory-data\r"
+expect "Configuration path \[/usr/local/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0/digital-factory-config\]"
+send "/opt/DigitalExperienceManager-EnterpriseDistribution-7.2.2.0/digital-factory-config\r"
+
+# Without this, the digital-factory-config folder is not created!
+set timeout 1000
+
+expect "press 1 to continue, 2 to quit, 3 to redisplay"
+send "1\r"
+
+expect eof

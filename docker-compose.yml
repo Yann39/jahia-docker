@@ -1,0 +1,36 @@
+version: '3.5'
+services:
+  tomcat:
+      image: jahia-7.1.2.1_tomcat
+      container_name: jahia-7.1.2.1_tomcat
+      build:
+        context: .
+        dockerfile: jahia-7.1.2.1/Dockerfile
+        args:
+          CONF_FILE: 'configuration_custom_standalone_db.xml'
+      expose:
+        - "8009"
+        - "8000"
+        - "8080"
+      ports:
+        - "8000:8000"
+        - "8080:8080"
+      links:
+        - mysql
+      command: bash -c "/tmp/wait.sh && /tmp/install.sh && /tmp/start.sh"
+  mysql:
+      image: mysql:5.6
+      container_name: jahia-7.1.2.1_mysql
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: root_pwd
+        MYSQL_USER: jahia
+        MYSQL_PASSWORD: jahia_root
+        MYSQL_DATABASE: jahia
+      volumes:
+        - ./mysql/my.cnf:/etc/alternatives/my.cnf
+        - mysql_bkp_jahia_7.1.2.1://C/docker_mysql
+      command: mysqld --lower_case_table_names=1
+volumes:
+  mysql_bkp_jahia_7.1.2.1:
