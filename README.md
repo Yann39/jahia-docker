@@ -1,5 +1,7 @@
 # Jahia Docker
 
+![Jahia logo](doc/logo-jahia-2016.png "Jahia logo")
+
 ## About
 The purpose of this project is to provide some "ready to use" Jahia installations using Docker.
 
