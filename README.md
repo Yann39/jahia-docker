@@ -1,15 +1,32 @@
 # Jahia Docker
 
+**Docker** version of **Jahia CMS** installations.
+
+![Static Badge](https://img.shields.io/badge/Version-1.0.0-2AAB92)
+![Static Badge](https://img.shields.io/badge/Last%20update-29%20Mar%202018-blue)
+
+---
+
+# Table of Contents
+
+* [About the project](#about-the-project)
+* [Technical details](#technical-details)
+* [Instructions](#instructions)
+   * [Windows](#windows)
+   * [Mac/Linux](#maclinux)
+* [License](#license)
+
+# About the project
+
 ![Jahia logo](doc/logo-jahia-2016.png "Jahia logo")
 
-## About
 The purpose of this project is to provide some "ready to use" Jahia installations using Docker.
 
 It currently provides the following versions :
  - Digital Experience Manager Enterprise Distribution **7.1.2.1**
  - Digital Experience Manager Enterprise Distribution **7.2.2.0**
 
-## Technical details
+# Technical details
 
 This project requires :
  - :whale: Docker (minimum version 17)
@@ -57,9 +74,9 @@ Finally you should end up with 2 running containers :
   - `jahia-x.x.x.x_mysql` : MySQL container listening on port **3306** (exposed as 3306)
   - `jahia-x.x.x.x_tomcat` : Jahia container with Tomcat listening on port **8080** (exposed as 8080)
 
-## Instructions
+# Instructions
 
-### Windows
+## Windows
 
 1. Get the project
 
@@ -82,13 +99,24 @@ Finally you should end up with 2 running containers :
 :warning: Once the images exist, if you change a configuration then you will have to rebuild the images using `docker-compose build`
 (you can also use `docker-compose down` to remove old containers) before running again `docker-compose up`.
 
-### Mac/Linux
+## Mac/Linux
 
 Almost the same as Windows.
 Do not forget to change the volumes path in the _docker-compose_ file.
 
-## License
+# License
 
-Refer to the [Jahia](https://www.jahia.com) license.
+Refer to the [Jahia](https://www.jahia.com) license. Else, the GPL v3 applies.
 
-Regarding the code I wrote, please refer to the [WTFPL](http://www.wtfpl.net/) license :)
+[General Public License (GPL) v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not,
+see <http://www.gnu.org/licenses/>.
