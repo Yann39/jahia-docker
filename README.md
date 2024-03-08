@@ -18,7 +18,16 @@
 
 # About the project
 
-![Jahia logo](doc/logo-jahia-2016.png "Jahia logo")
+<table>
+  <tr>
+    <td>
+      <img src="doc/logo-docker.svg" alt="Docker logo" height="78"/>
+    </td>
+    <td>
+      <img src="doc/logo-jahia-2016.png" alt="Jahia logo" height="120"/>
+    </td>
+  </tr>
+</table>
 
 The purpose of this project is to provide some "ready to use" Jahia installations using Docker.
 
@@ -43,13 +52,13 @@ When running the _docker-compose_ file, it will create 2 images :
 The MySQL image is simply pulled from Docker Hub if it does not exist. We add an alternative _my.cnf_ file on start
 because Jahia requires a higher `max_allowed_packet`. If not set, an error is thrown during the installation : 
 
- > Value for max_allowed_packet is not enough, should be at least 100M)
+ > Value for max_allowed_packet is not enough, should be at least 100M
 
 The Jahia image is created from its **Dockerfile**, it just prepares the server for the Jahia installation, it will
 **not** be installed at build time!
 
-Indeed installation process requires the MySQL database to be up, so the installation cannot be done on image build but
-has to be done on container run. Therefore a test is done on container start to check if Jahia is already installed,
+Indeed, installation process requires the MySQL database to be up, so the installation cannot be done on image build but
+has to be done on container run. Therefore, a test is done on container start to check if Jahia is already installed,
 and install it only if needed.
 
 3 Shell scripts are executed when running this container from the compose file, in the following order :
@@ -68,9 +77,9 @@ input. I used it on first try and kept the _.exp_ file just in case... To use it
 
 Modules from the _modules_ folder will automatically be deployed.
 
-Tomcat is executed with **JPDA** support so it can be directly debugged from your local IDE.
+Tomcat is executed with **JPDA** support, so it can be directly debugged from your local IDE.
 
-Finally you should end up with 2 running containers :
+Finally, you should end up with 2 running containers :
   - `jahia-x.x.x.x_mysql` : MySQL container listening on port **3306** (exposed as 3306)
   - `jahia-x.x.x.x_tomcat` : Jahia container with Tomcat listening on port **8080** (exposed as 8080)
 
